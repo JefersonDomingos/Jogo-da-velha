@@ -1,0 +1,164 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    
+    background-image: linear-gradient(90deg, #0040ff 0%, #0099aa 100%);
+    width:100vw;
+    height:100vh;
+    
+}
+
+h1{
+    position: relative;
+    text-align: center;
+    top: 2em;
+    font-family: sans-serif;
+    font-size: 3em;
+    font-weight: 300;
+    text-shadow: 1px 2px #fefefe;
+    transition: .2s;
+    
+}
+
+h1:hover{
+    transform: scale(1.1);
+}
+
+.tabuleiro{
+    display:grid;
+    width:100%;
+    height:100%;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+
+}
+
+.tabuleiro.x .casas:not(.x):not(.circulo):hover::before, 
+.tabuleiro.x .casas:not(.x):not(.circulo):hover::after{
+    background: #ffffff!important;
+    opacity: 0.2;
+    
+}
+
+.tabuleiro.circulo .casas:not(.x):not(.circulo):hover::before, 
+.tabuleiro.circulo .casas:not(.x):not(.circulo):hover::after{
+    background: transparent !important;
+    opacity: 0.2;
+}
+
+
+.casas{
+    width:100px;
+    height:100px;
+    border: 2px solid #ffffff;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    position:relative;
+  
+}
+
+
+.casas:nth-child(1), .casas:nth-child(2), .casas:nth-child(3){
+    border-top:none;
+}
+
+.casas:nth-child(1), .casas:nth-child(4), .casas:nth-child(7){
+    border-left:none;
+}
+
+.casas:nth-child(7), .casas:nth-child(8), .casas:nth-child(9){
+    border-bottom:none;
+}
+
+.casas:nth-child(3), .casas:nth-child(6), .casas:nth-child(9){
+    border-right:none;
+    
+}
+
+
+.casas.x, .casas.circulo{
+    cursor:not-allowed;
+}
+
+/*criando o X*/
+.casas.x::before, .casas.x::after,
+.tabuleiro.x .casas:not(.x):not(.circulo):hover::after, 
+.tabuleiro.x .casas:not(.x):not(.circulo):hover::before
+{
+    content:"";
+    height:calc(100px * 0.15); /*altura 15% do valor da celula*/
+    width:calc(100px * 0.9);
+    background: #ffffff;
+    position: absolute;
+}
+
+.casas.x::before,
+.tabuleiro.x .casas:not(.x):not(.circulo):hover::before
+{
+    transform: rotate(45deg);
+}
+
+.casas.x::after,
+.tabuleiro.x .casas:not(.x):not(.circulo):hover::after
+{
+    transform: rotate(-45deg);
+}
+
+/*criando o circulo*/
+.casas.circulo::before, .casas.circulo::after,
+.tabuleiro.circulo .casas:not(.x):not(.circulo):hover::after, 
+.tabuleiro.circulo .casas:not(.x):not(.circulo):hover::before
+{
+    content:"";
+    height:calc(100px * 0.6); /*altura 15% do valor da celula*/
+    width:calc(100px * 0.6);
+    background: transparent;
+    position: absolute;
+    border-radius: 50%;
+    border: 0.8em solid #ffffff;
+}
+
+
+
+/*mensagem vencedor*/
+.vencedor{
+    display:none; 
+    position:fixed;
+    flex-direction: column;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    align-items:center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.8); 
+    font-size: 6rem;
+    color:#ffffff;
+}
+
+.vencedor-mostrar{
+    display: flex;
+}
+
+.reiniciar-botao{
+    background-color: #0040ff;
+    padding: 0.5rem 2rem;
+    font-size: 2rem;
+    margin-top: 2rem;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.reiniciar-botao:hover{
+    transform: scale(1.1);
+}
+
+
