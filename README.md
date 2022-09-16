@@ -12,7 +12,7 @@ o jogo consiste em fazer uma sequência de três símbolos iguais, seja em linha
 
 ## Imagens
 
-![/nada.png"]()
+![/layout.png"](https://github.com/JefersonDomingos/Jogo-da-velha/blob/master/assets/layout.png?raw=true)
 
 
 ## você pode testar o projeto, acesse o link abaixo
